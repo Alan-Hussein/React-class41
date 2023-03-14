@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header {
+  text-align: center;
+  padding: 40px;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+nav > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  height: 50px;
+  background-color: gray;
+  margin-left: 10px;
+}
+nav > button:hover {
+  cursor: pointer;
+}
+.active {
+  background-color: black;
+  color: white;
+}
+
+.products {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.product {
+  position: relative;
+  width: 30%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+}
+.product_Details {
+  justify-content: center;
+  text-align: center;
+}
+
+.product_title {
+  color: peru;
+  margin: 75px 0;
+}
+.product_description {
+  margin: 50px 150px;
+}
+.error {
+  display: flex;
+  justify-content: center;
+}
+.fav-icon {
+  width: 25px;
+  height: 25px;
+  float: "right";
+}
+
+.fav-icon-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.header-nav {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 10px;
+  gap: 15px;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+}
