@@ -7,9 +7,9 @@ import "./App.css";
 
 function App() {
   const [allProducts, setProducts] = useState(products);
-  const [selectCategory, setSelect] = useState();
+  const [selectedCategory, setSelect] = useState();
 
-  const filtre = (category) => {
+  const filter = (category) => {
     const filterProducts = products.filter(
       (item) => `FAKE: ${item.category}` === category
     );
@@ -20,8 +20,8 @@ function App() {
       <h1 className="header">Products</h1>
       <Categories
         categories={categories}
-        filtre={filtre}
-        selectCategory={selectCategory}
+        filter={filter}
+        selectedCategory={selectedCategory}
         setSelect={setSelect}
       />
       <Product allPro={allProducts} />;
