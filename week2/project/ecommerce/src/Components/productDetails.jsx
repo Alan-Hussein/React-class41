@@ -1,44 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Error from "./Error";
 import { useParams } from "react-router-dom";
+import useFetch from "../hooks/useFetch";
+import Loading from "./Loading";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState(false);
-  const [Loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const getData = async () => {
-        setLoading(true)
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-      const data = await response.json();
-      setProduct(data);
-      setLoading(false)
-    };
-    try {
-      getData();
-    } catch (err) {
-      setError(err.message);
-      setLoading(false);
-    } 
-  }, [id]);
+  const { data, error, loading } = useFetch(
+    `https://fakestoreapi.com/products/${id}`
+  );
 
+  if (error) return <Error error={error} />;
+  if (loading) return <Loading/>
   return (
   <>
-  {Loading ? (
-      <h3>Loading...</h3>
-    
-  ) : error ? (
-    <Error error={error} />
-  ) : (
+  
     <div className="product_Details">
-      <h3 className="product_title">{product.title}</h3>
-      <img src={product.image} alt={product.id} />
-      <p className="product_description">{product.description}</p>
+      <h3 className="product_title">{data.title}</h3>
+      <img src={data.image} alt={data.id} />
+      <p className="product_description">{data.description}</p>
     </div>
-  )
-  }
+  
+  
   </>) 
 };
 
